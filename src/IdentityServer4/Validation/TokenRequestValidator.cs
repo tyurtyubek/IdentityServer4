@@ -334,13 +334,13 @@ namespace IdentityServer4.Validation
                 return Invalid(OidcConstants.TokenErrors.InvalidScope);
             }
 
-            if (_validatedRequest.ValidatedScopes.ContainsOpenIdScopes)
+            if (!_validatedRequest.ValidatedScopes.ContainsOpenIdScopes)
             {
                 LogError("{clientId} cannot request OpenID scopes in client credentials flow", _validatedRequest.Client.ClientId);
                 return Invalid(OidcConstants.TokenErrors.InvalidScope);
             }
 
-            if (_validatedRequest.ValidatedScopes.ContainsOfflineAccessScope)
+            if (!_validatedRequest.ValidatedScopes.ContainsOfflineAccessScope)
             {
                 LogError("{clientId} cannot request a refresh token in client credentials flow", _validatedRequest.Client.ClientId);
                 return Invalid(OidcConstants.TokenErrors.InvalidScope);
