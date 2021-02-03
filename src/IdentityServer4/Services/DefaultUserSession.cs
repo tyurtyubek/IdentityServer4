@@ -370,7 +370,7 @@ namespace IdentityServer4.Services
                 HttpOnly = false,
                 Secure = secure,
                 Path = path,
-                SameSite = SameSiteMode.None
+                SameSite = (SameSiteMode)(-1)
             };
 
             return options;
